@@ -45,3 +45,4 @@
 - **Slack**: trao đổi yêu cầu, khó khăn cần giải đáp...
 - **Git và GitHub**
 - **LaTeX**: viết báo cáo, hợp đồng nhóm
+- **Assets**: viết báo cáo, hợp đồng nhóm
