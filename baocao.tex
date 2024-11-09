@@ -71,6 +71,25 @@
     \href{https://www.overleaf.com/project/67271c85e33c6e0dfe041c9d}{Overleaf URL}
 \end{itemize}
 
+\subsection{Công nghệ sử dụng}
+\begin{itemize}
+    \item \textbf{React}: React được chọn làm nền tảng cho giao diện người dùng do khả năng xây dựng ứng dụng đơn trang (SPA) mạnh mẽ, giúp quản lý trạng thái và các thành phần UI một cách hiệu quả. Với cấu trúc component-based, React giúp chia các phần UI thành các khối nhỏ và tái sử dụng, từ đó tăng tính linh hoạt và dễ bảo trì cho dự án.
+
+    \item \textbf{Phaser}: Phaser là một thư viện game 2D mạnh mẽ và phù hợp cho các dự án trò chơi nhẹ nhàng như trò rắn săn mồi. Nó cung cấp các công cụ giúp quản lý các yếu tố trong trò chơi, từ các hoạt cảnh, xử lý va chạm, cho đến việc thiết lập các hiệu ứng động. Kết hợp với React, Phaser giúp duy trì tính tương tác động trong khi vẫn đảm bảo hiệu suất tốt và dễ quản lý.
+
+    \item \textbf{Thành phần trong trò chơi}
+
+     \item \textbf{Game}: `Game` là đối tượng cốt lõi của Phaser, dùng để khởi tạo toàn bộ trò chơi. Nó chịu trách nhiệm thiết lập cấu hình ban đầu (kích thước, chế độ hiển thị, và các tùy chọn khác), tạo ra môi trường để các scene hoạt động. Game là trung tâm điều khiển các thành phần khác và xử lý vòng lặp game liên tục.
+
+    \item \textbf{Scene}: Scene là môi trường nơi trò chơi diễn ra, đóng vai trò tổ chức các đối tượng và logic trong mỗi phần của trò chơi (ví dụ: màn chơi, menu, hoặc màn hình kết thúc). Scene giúp phân tách các trạng thái khác nhau của trò chơi, cho phép chuyển đổi dễ dàng giữa chúng mà không ảnh hưởng đến các phần khác. Mỗi scene có thể quản lý hoạt cảnh, tương tác, và các sự kiện riêng.
+
+    \item \textbf{Camera}: Camera giúp xác định khu vực của scene mà người chơi sẽ thấy. Trong các trò chơi lớn, camera có thể di chuyển để theo dõi các đối tượng chính hoặc thu phóng để tạo ra những hiệu ứng thị giác. Camera có thể điều chỉnh để tạo ra các trải nghiệm khác nhau, như tập trung vào các đối tượng nhất định hoặc cho phép người chơi xem toàn bộ scene.
+
+    \item \textbf{Physics}: Đây là hệ thống quản lý va chạm và các quy luật vật lý trong trò chơi. Phaser cung cấp nhiều loại vật lý, như Arcade Physics, giúp tạo ra các tương tác đơn giản và hiệu quả giữa các đối tượng. Physics đảm bảo các đối tượng di chuyển, va chạm, và phản ứng theo các quy tắc mà trò chơi yêu cầu.
+
+    \item \textbf{Input}: Input quản lý các sự kiện đầu vào từ người chơi, như bàn phím, chuột hoặc cảm ứng. Input giúp trò chơi xử lý hành động của người chơi và phản hồi lại, như di chuyển nhân vật, kích hoạt chức năng, hoặc điều khiển menu.
+\end{itemize}
+
 \subsection{Phân công công việc}
 \begin{itemize}
     \item Phạm Tiến Anh: Tạo báo cáo, khái quát yêu cầu cơ bản, ....bla bla
