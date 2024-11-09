@@ -6,6 +6,9 @@ interface SnakePart {
   position: { x: number; y: number };
 }
 
+type Direction = "up" | "down" | "left" | "right";
+type BodyAnimKeys = "horizontal" | "vertical" | "turn";
+
 export default class Snake {
   private scene: Phaser.Scene;
   private snakeParts: SnakePart[];
@@ -14,6 +17,9 @@ export default class Snake {
   private spriteSize: number;
   private spriteScale: number;
   private spriteSpacing: number;
+  private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
+  private moveDelay: number;
+  private lastMoveTime: number;
   private readonly animations: {
     head: {
       up: string;
@@ -42,10 +48,13 @@ export default class Snake {
   constructor(scene: Phaser.Scene) {
     this.scene = scene;
     this.snakeParts = [];
-    this.direction = "up";
+    this.direction = "right";
     this.spriteSize = 16;
     this.spriteScale = 1;
     this.spriteSpacing = this.spriteScale * this.spriteSize;
+    this.moveDelay = 100;
+    this.lastMoveTime = 0;
+
     this.animations = {
       head: {
         up: "head-up",
@@ -194,22 +203,58 @@ export default class Snake {
 
     this.snakeMaps.forEach((part, i) => {
       const x = startX - this.spriteSpacing * i;
-      console.log(x);
       this.mappingAssets(part, x, startY);
     });
+
+    this.cursors = this.scene.input?.keyboard?.createCursorKeys();
+  }
+
+  update(time: number): void {
+    let newDirection = this.direction;
+    if (this.cursors?.up.isDown && this.direction !== "down") {
+      newDirection = "up";
+    } else if (this.cursors?.down.isDown && this.direction !== "up") {
+      newDirection = "down";
+    } else if (this.cursors?.left.isDown && this.direction !== "right") {
+      newDirection = "left";
+    } else if (this.cursors?.right.isDown && this.direction !== "left") {
+      newDirection = "right";
+    }
+
+    if (time - this.lastMoveTime > this.moveDelay) {
+      this.move(newDirection);
+      this.lastMoveTime = time;
+    }
   }
 
   move(newDirection: "up" | "down" | "left" | "right"): void {
     const head = this.snakeParts[0].sprite;
+    const oldDirection = this.direction;
 
     // Cập nhật hướng và animation
     if (this.canChangeDirection(newDirection)) {
       this.direction = newDirection;
       head.play(this.animations.head[newDirection]);
     }
-
     // Tính toán vị trí mới
     const newPosition = this.calculateNewPosition();
+
+    newPosition.x =
+      (newPosition.x + this.scene.scale.width) % this.scene.scale.width;
+    newPosition.y =
+      (newPosition.y + this.scene.scale.height) % this.scene.scale.height;
+
+    // Di chuyển thân rắn
+    for (let i = this.snakeParts.length - 1; i > 0; i--) {
+      const currentPart = this.snakeParts[i];
+      const previousPart = this.snakeParts[i - 1];
+
+      currentPart.position = { ...previousPart.position };
+      currentPart.sprite.setPosition(
+        currentPart.position.x,
+        currentPart.position.y
+      );
+    }
 
     // Di chuyển đầu rắn
     this.snakeParts[0].position = newPosition;
@@ -261,20 +306,6 @@ export default class Snake {
       sprite: newPart,
       position: { ...lastPart.position },
     });
-  }
-
-  update(): void {
-    // Cập nhật vị trí của các phần thân
-    for (let i = this.snakeParts.length - 1; i > 0; i--) {
-      const currentPart = this.snakeParts[i];
-      const previousPart = this.snakeParts[i - 1];
-
-      currentPart.position = { ...previousPart.position };
-      currentPart.sprite.setPosition(
-        currentPart.position.x,
-        currentPart.position.y
-      );
-    }
   }
 
   destroy(): void {
