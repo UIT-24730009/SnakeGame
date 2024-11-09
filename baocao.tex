@@ -93,6 +93,7 @@
 \subsection{Phân công công việc}
 \begin{itemize}
     \item Phạm Tiến Anh: Tạo báo cáo, khái quát yêu cầu cơ bản, ....bla bla
+    \item Trần Mai Uyên Nhi: Thảo luận định hướng dự án, theo dõi tiến độ công việc của các thành viên.
 
 \end{itemize}
 
@@ -138,6 +139,129 @@
     \end{tabular}
 
 \end{tabular}
+\section{Giới Thiệu và Hướng Dẫn Chơi Game}
+
+\subsection{Giới thiệu về trò chơi:}
+
+Trò chơi rắn săn mồi (Snake) là một tựa game giải trí phổ biến, dễ chơi nhưng rất gây nghiện. Trong trò chơi này, người chơi điều khiển một con rắn di chuyển trên màn hình để thu thập thức ăn. Mỗi lần con rắn ăn một món ăn, nó sẽ dài ra, và mục tiêu là di chuyển sao cho con rắn không tự đâm vào chính mình. Khi rắn đâm vào chính nó, trò chơi sẽ kết thúc.
+
+Trò chơi được thiết kế đơn giản, nhưng có tính lặp lại cao và yêu cầu sự tập trung, phản xạ tốt từ người chơi. Đây là một tựa game không giới hạn số lượng cấp độ, và tốc độ di chuyển của rắn có thể được tăng dần, tạo thêm độ khó và thử thách cho người chơi.
+
+\subsection{Hướng dẫn chơi:}
+
+\begin{itemize}
+\textbf{Mục tiêu của trò chơi:} Giúp rắn ăn thức ăn để tăng chiều dài. Hãy cố gắng tránh cho rắn đâm vào chính mình vì điều đó sẽ kết thúc trò chơi.
+\end{itemize}
+
+\textbf{Điều khiển:}
+
+Sử dụng các phím mũi tên để di chuyển rắn theo các hướng:
+
+\begin{itemize}
+    \item Mũi tên lên: Di chuyển lên.
+
+    \item Mũi tên xuống: Di chuyển xuống.
+
+    \item Mũi tên trái: Di chuyển sang trái.
+
+    \item Mũi tên phải: Di chuyển sang phải.
+\end{itemize}
+
+\textbf{Cách chơi:}
+
+\begin{enumerate}
+    \item Khởi động trò chơi và bắt đầu điều khiển rắn bằng các phím mũi tên.
+
+    \item Khi rắn chạm vào món ăn, nó sẽ dài ra thêm một đoạn và điểm số của bạn sẽ tăng lên.
+
+    \item Mục tiêu là di chuyển rắn càng lâu càng tốt mà không để rắn tự đâm vào chính nó.
+
+    \item Trò chơi kết thúc khi rắn va vào thân của chính nó. Bạn có thể bắt đầu lại trò chơi và cố gắng đạt điểm số cao hơn.
+\end{enumerate}
+
+\section{\textbf{Tính năng đặc biệt:}}
+
+\begin{itemize}
+    \item Tăng tốc độ: Khi người chơi ăn thức ăn, tốc độ di chuyển của rắn sẽ tăng lên, tạo thêm thử thách cho người chơi.
+\end{itemize}
+
+\begin{itemize}
+    \item Điểm số: Hệ thống điểm số tự động cập nhật khi người chơi ăn thức ăn, giúp người chơi thấy được tiến độ và đặt mục tiêu để vượt qua kỷ lục của mình.
+\end{itemize}
+
+\section{Tài Liệu Kỹ Thuật của Trò Chơi:}
+
+\subsection{Sơ lược về các chức năng chính:}
+
+\begin{itemize}
+    \item \textbf{Di chuyển và kiểm soát rắn}: Người chơi có thể điều khiển rắn theo các hướng lên, xuống, trái và phải. Hướng di chuyển của rắn được xác định dựa trên đầu vào của bàn phím.
+
+    \item \textbf{Hệ thống va chạm:} Trò chơi có chức năng phát hiện va chạm giữa đầu rắn và thân rắn, giúp trò chơi kết thúc nếu rắn đâm vào chính mình.
+
+    \item \textbf{Hệ thống tạo thức ăn:} Thức ăn sẽ xuất hiện ở vị trí ngẫu nhiên trong khu vực chơi. Khi rắn ăn được thức ăn, chiều dài của nó sẽ tăng lên, và thức ăn mới sẽ được sinh ra ở vị trí khác.
+
+    \item \textbf{Hiệu ứng animations cho rắn:} Các đoạn của rắn bao gồm đầu, thân, và đuôi, đều có các hiệu ứng animations riêng, tạo cảm giác mượt mà khi rắn di chuyển.
+\end{itemize}
+
+\subsection{Các lớp và cấu trúc chính của chương trình:}
+
+\begin{itemize}
+    \item \textbf{Lớp Snake:}
+\end{itemize}
+
+Đây là lớp chính quản lý các tính năng của con rắn, từ điều khiển, di chuyển, đến phát hiện va chạm.
+
+Lớp này chứa thông tin về các đoạn của rắn, hướng di chuyển hiện tại và các trạng thái khác của trò chơi.
+
+\begin{itemize}
+    \item \textbf{Interface SnakePart:}
+\end{itemize}
+
+Đại diện cho từng đoạn của rắn với vị trí và animations.
+
+Mỗi phần của rắn bao gồm một sprite và vị trí hiện tại của nó.
+
+\begin{itemize}
+    \item \textbf{Type Direction và BodyAnimKeys:}
+\end{itemize}
+
+\textbf{Direction:} Quy định hướng di chuyển của rắn.
+
+\textbf{BodyAnimKeys:} Quy định animations dành cho phần thân của rắn.
+
+\begin{itemize}
+    \item \textbf{Phương thức move():}
+\end{itemize}
+
+Phương thức này giúp rắn di chuyển theo hướng hiện tại.
+
+Mỗi khi \textbf{move()} được gọi, phương thức tính toán vị trí mới của đầu rắn và di chuyển các đoạn thân theo sau để tạo ra hiệu ứng rắn di chuyển mượt mà.
+
+\begin{itemize}
+    \item \textbf{Phương thức grow():}
+\end{itemize}
+
+Được gọi khi rắn ăn được thức ăn. Phương thức này thêm một đoạn mới vào cuối rắn, làm tăng chiều dài của rắn.
+
+\begin{itemize}
+    \item \textbf{Hệ thống animations (createAnimations):}
+\end{itemize}
+
+Lớp này sử dụng các hình ảnh để tạo animations cho từng đoạn của rắn và có các animations khác nhau cho đầu rắn khi rắn di chuyển theo các hướng.
+
+\begin{itemize}
+    \item \textbf{Phương thức initializeSnake():}
+\end{itemize}
+
+Phương thức khởi tạo các đoạn của rắn và đặt rắn ở vị trí ban đầu trên màn hình.
+
+\subsection{Giải thuật và cấu trúc dữ liệu:}
+
+Dữ liệu của rắn được lưu trữ dưới dạng mảng snakeParts, trong đó mỗi phần tử là một SnakePart, biểu diễn một đoạn của rắn. 
+
+\textbf{Giải thuật điều khiển di chuyển:} Dựa trên hướng đi của người chơi, chương trình tính toán vị trí mới cho rắn và di chuyển các đoạn thân theo hướng đầu rắn để tạo hiệu ứng di chuyển.
+
+\textbf{Giải thuật sinh thức ăn ngẫu nhiên:} Tọa độ của thức ăn được sinh ra ngẫu nhiên trên màn hình với các giá trị chia hết cho kích thước ô lưới (grid size), giúp nó nằm gọn trong các ô của màn hình.
 
 
 \end{document}
