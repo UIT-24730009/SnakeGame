@@ -1,6 +1,9 @@
 const gameBoard = document.querySelector('#gameBoard')
 const ctx = gameBoard.getContext('2d')
 
+const scoreText = document.querySelector("#scoreText")
+const resetBtn = document.querySelector('#resetBtn')
+
 const gameWidth = gameBoard.width
 const gameHeight = gameBoard.height
 
@@ -15,6 +18,11 @@ let running = false
 let xVelocity = unitSize
 let yVelocity = 0
 
+let foodX
+let foodY
+
+let score = 0
+
 let snake = [
     {x: unitSize * 4, y: 0},
     {x: unitSize * 3, y: 0},
@@ -24,11 +32,16 @@ let snake = [
 ]
 
 window.addEventListener('keydown', changeDirection)
+resetBtn.addEventListener('click', resetGame)
 
 gameStart()
 
 function gameStart() {
     running = true
+    scoreText.textContent = score;
+
+    createFood()
+    drawFood()
     nextTick()
 }
 
@@ -36,19 +49,36 @@ function nextTick() {
     if(running) {
         setTimeout(() => {
             clearBoard()
+            drawFood()
             moveSnake()
             drawSnake()
             checkGameOver()
             nextTick()
-        }, 100)
+        }, 75)
     } else {
-        resetGame()
+        displayGameOver()
     }
 }
 
 function clearBoard() {
     ctx.fillStyle = boardBackground
     ctx.fillRect(0, 0, gameWidth, gameHeight)
+}
+
+function createFood() {
+    function randomFood(min, max) {
+        const randNum = Math.round((Math.random() * (max - min) + min) / unitSize) * unitSize
+        
+        return randNum
+    }
+
+    foodX = randomFood(0, gameWidth - unitSize)
+    foodY = randomFood(0, gameWidth - unitSize)
+}
+
+function drawFood() {
+    ctx.fillStyle = foodColor
+    ctx.fillRect(foodX, foodY, unitSize, unitSize)
 }
 
 function moveSnake() {
@@ -58,7 +88,15 @@ function moveSnake() {
     }
 
     snake.unshift(head)
-    snake.pop()
+
+    // if food is eaten
+    if(snake[0].x == foodX && snake[0].y == foodY) {
+        score += 1
+        scoreText.textContent = score
+        createFood()
+    } else {
+        snake.pop()
+    }
 }
 
 function drawSnake() {
@@ -128,6 +166,15 @@ function checkGameOver() {
             running = false
         }
     }
+}
+
+function displayGameOver() {
+    ctx.font = '50px MV Boli'
+    ctx.fillStyle = 'black'
+    ctx.textAlign = 'center'
+    ctx.fillText('Game Over!', gameWidth / 2, gameHeight / 2)
+    
+    running = false
 }
 
 function resetGame() {

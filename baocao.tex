@@ -1,4 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
+\usepackage{fullpage}
+\usepackage{titlesec} % Gói để tùy chỉnh tiêu đề
 \usepackage[utf8]{vietnam}  % Hỗ trợ tiếng Việt
 \usepackage{enumitem}
 \usepackage{xcolor}  % Hỗ trợ màu sắc
@@ -10,43 +12,95 @@
     filecolor=blue,
     urlcolor=blue,
 }
+\usepackage{array}
 
-\title{}
-\author{}
-\date{}
+% \title{}
+% \author{}
+% \date{}
 
 \begin{document}
-\maketitle
+% \maketitle
 
+% Bia bao cao
+\thispagestyle{empty}
 \begin{center}
-    \large \textbf{ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH}\\
-    \large \textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}\\
-    \large \textbf{KHOA CÔNG NGHỆ THÔNG TIN}\\[2cm]
-    
-    \textbf{Lớp: CN1.K2024.1}\\
-    \vspace{0.5cm}
-    
-    \vspace{2cm}
-    \Large \textbf{BÁO CÁO ĐỒ ÁN MÔN HỌC}\\[0.5cm]
-    \Large \textbf{\underline{Snake Game}}\\[0.5cm]
-    \Large \textbf{GVHD: Nguyễn Văn Toàn}\\[0.5cm]
-    \vspace{2cm}
+    \begin{center}
+        \textbf{ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH}\\[0.25cm]
+        \large \textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}\\[0.25cm]
+        \large \textbf{KHOA KHOA HỌC VÀ KỸ THUẬT THÔNG TIN}
+    \end{center}
+    \vspace{1cm}
 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.2\textwidth]{uit.png} % adjust width as needed
+        % \caption{Your image caption here}
+        % \label{fig:your-label}
+    \end{figure}
+    \vspace{1cm}
+    
+    \begin{center}
+        \Large \textbf{BÁO CÁO ĐỒ ÁN}\\[0.5cm]
+        \Large \textbf{MÔN HỌC: KỸ NĂNG NGHỀ NGHIỆP}\\[0.25cm]
+        \large \textbf{LỚP: SS004.E11.CN1}
+    \end{center}
+    \vspace{1cm}
+    
+    \begin{center}
+        \Large \textbf{ĐỀ TÀI}\\[0.5cm]
+        \huge \textbf{SNAKE GAME}
+    \end{center}
+    \vspace{1cm}
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{l c}
+            \multicolumn{2}{l}{Giảng viên hướng dẫn: ThS. Nguyễn Văn Toàn} \\[0.5cm]
+            \multicolumn{2}{l}{Sinh viên thực hiện:} \\[0.25cm]
+    
+            \multicolumn{2}{c}{
+                \begin{minipage}{0.5\textwidth}
+                    \centering
+                    \begin{tabular}{l @{\hspace{1cm}} c}
+                        Trần Mai Uyên Nhi & 24730053 \\
+                        Phạm Tiến Anh & 24730009 \\
+                        Nguyễn Thanh Minh & 24730046 \\
+                        Lưu Đinh Đại Đức & 24730022 \\
+                        Trương Anh Vũ & 23730232 \\
+                    \end{tabular}
+                \end{minipage}
+            } \\
+        \end{tabular}
+        % \caption{Caption}
+        \label{tab:my_label}
+    \end{table}
+    \vspace{1cm}
+    
+    \textbf{TP. Hồ Chí Minh, tháng 11 năm 2024}
     \vspace{1cm}
 \end{center}
-
 \newpage
+
+\renewcommand{\contentsname}{\hfill \textbf{Mục lục} \hfill} % Căn giữa tiêu đề mục lục
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\thesubsection\arabic{subsubsection}}
 \tableofcontents
-\newpage
 
+\newpage
+% Noi dung bao cao
+% task 1
 \section{Hợp đồng nhóm}
-\subsection{Thông tin nhóm}
+\subsection{Thông tin}
+\renewcommand{\arraystretch}{1.5}
 \begin{itemize}
-    \item Tên nhóm: The Fellowship of the Mind
-    \item Thành viên:\\\\
-        \begin{tabular}{|c|l|c|}
+    \item Tên nhóm: \large \textbf{The Fellowship of the Mind}
+    \item Thành viên:
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|>{\raggedright\arraybackslash}p{5cm}|c|}
             \hline
-            \textbf{STT} & \textbf{Tên} & \textbf{Mã số sinh viên} \\
+            \textbf{STT} & \multicolumn{1}{c|}{\textbf{Tên}} & \textbf{Mã số sinh viên} \\
             \hline
             1 & Trần Mai Uyên Nhi & 24730053 \\
             \hline
@@ -59,20 +113,118 @@
             5 & Trương Anh Vũ & 23730232 \\
             \hline
         \end{tabular}
+        % \caption{Caption}
+        % \label{tab:my_label}
+\end{table}
 \end{itemize}
 
-\subsection{Công cụ và không gian làm việc}
+\subsection{Mục tiêu}
 \begin{itemize}
-    \item Github repository:
-    \href{https://github.com/UIT-24730009/SnakeGame}{Github Repo URL}
-    \item Slack - Công cụ giao tiếp:
-    \href{https://app.slack.com/client/T07Q56DLLUX/C07U74U2XGF}{Slack URL}
-    \item Overleaf - Công cụ soạn thảo văn bản:
-    \href{https://www.overleaf.com/project/67271c85e33c6e0dfe041c9d}{Overleaf URL}
-    \item Github Project - Quản lý và theo dõi công việc:
-    \href{https://github.com/users/UIT-24730009/projects/1/views/1}{Board URL}
+    \item Cùng nhau giúp đỡ, động viên, hoàn thành tốt, đạt kết quả cao trong môn học.
+    \item Rèn luyện kỹ năng làm việc nhóm, kỹ năng giao tiếp, và kỹ năng trình bày.
+    \item Cải thiện và nâng cao kỹ năng logic, kỹ năng giải quyết vấn đề của môn học.
 \end{itemize}
 
+\subsection{Vai trò của các thành viên}
+\begin{itemize}
+    \item \textbf{Trần Mai Uyên Nhi} - Thảo luận định hướng dự án, theo dõi tiến độ công việc của các thành viên.
+    \item \textbf{Phạm Tiến Anh (Trưởng nhóm)} - Tạo báo cáo, khái quát yêu cầu cơ bản, lập kế hoạch công việc, hỗ trợ lập trình game logic.
+    \item \textbf{Nguyễn Thanh Minh} - nghiên cứu tech stack, khởi tạo code base, khởi tạo assets, animations, lập trình game logic.
+    \item \textbf{Lưu Đinh Đại Đức} - tìm hiểu tech stack, lập trình game logic.
+    \item \textbf{Trương Anh Vũ} - Tạo báo cáo, tìm hiểu tech stack, lập trình game logic.
+\end{itemize}
+
+\subsection{Hiệp định}
+\begin{itemize}
+    \item Nhóm đưa ra quyết định dựa trên kiến thức nền tảng của các thành viên để chọn tech stack phù hợp.
+    \item Ý kiến được chọn nếu 4/5 thành viên đồng ý.
+    \item Trong trường hợp có tranh cãi, trưởng nhóm sẽ có quyền quyết định cuối cùng.
+\end{itemize}
+
+% task 2
+\section{Công cụ và không gian làm việc}
+\begin{itemize}
+    \item \href{https://github.com/UIT-24730009/SnakeGame}{\large \textbf{Github repository}} - Công cụ làm việc nhóm.
+    \item \href{https://app.slack.com/client/T07Q56DLLUX/C07U74U2XGF}{\large \textbf{Slack}} - Công cụ giao tiếp.
+    \item \href{https://www.overleaf.com/project/67271c85e33c6e0dfe041c9d}{\large \textbf{Overleaf}} - Công cụ soạn thảo văn bản.
+    \item \href{https://github.com/users/UIT-24730009/projects/1/views/1}{\large \textbf{Github Projects}} - Công cụ quản lý, theo dõi tiến độ công việc.
+\end{itemize}
+
+% task 3
+\section{Giới thiệu và hướng dẫn chơi Game}
+\subsection{Giới thiệu về trò chơi rắn săn mồi (Snake Game)}
+Snake là một thể loại trò chơi hành động trong đó người chơi điều khiển phần đầu của một đường thẳng ngày càng dài, thường được thiết kế theo hình dạng một con rắn. Người chơi phải tránh để rắn va vào chướng ngại vật hoặc chính cơ thể mình, điều này trở nên khó hơn khi rắn dài ra.
+\\\\
+Thể loại này bắt nguồn từ trò chơi arcade cạnh tranh Blockade năm 1976 của Gremlin Industries, trong đó mục tiêu là sống lâu hơn đối thủ. Blockade và những phiên bản sao chép đầu tiên chỉ mang tính chất trừu tượng và không sử dụng hình ảnh rắn. Ý tưởng này sau đó phát triển thành một biến thể chơi đơn, nơi một đường thẳng có phần đầu và đuôi sẽ dài ra mỗi khi ăn thức ăn - thường là táo hoặc trứng - làm tăng khả năng va chạm vào chính nó. Sự đơn giản và yêu cầu kỹ thuật thấp của các trò chơi thuộc thể loại rắn đã tạo ra hàng trăm phiên bản, một số có từ "snake" hoặc "worm" trong tên. Trò chơi arcade Tron năm 1982, dựa trên bộ phim cùng tên, bao gồm chế độ chơi "Light Cycles" với lối chơi giống rắn, và một số trò chơi rắn sau này cũng lấy cảm hứng từ chủ đề này.
+\\\\
+Sau khi một phiên bản đơn giản có tên Snake được cài đặt sẵn trên điện thoại Nokia vào năm 1998, thể loại trò chơi rắn đã thu hút sự quan tâm trở lại.
+
+\subsubsection{Lịch sử ra đời}
+Thể loại game Snake bắt đầu với trò chơi arcade Blockade (1976) được phát triển và phát hành bởi Gremlin Industries. Cùng năm đó, trò chơi này được sao chép thành Bigfoot Bonkers. Năm 1977, Atari, Inc. phát hành hai tựa game lấy cảm hứng từ Blockade: trò chơi arcade Dominos và trò chơi Surround cho hệ máy Atari VCS. Surround là một trong chín tựa game ra mắt cùng Atari VCS tại Mỹ và được Sears bán dưới tên gọi Chase. Cùng năm, một trò chơi tương tự được phát hành trên Bally Astrocade với tên Checkmate, và Mattel ra mắt Snafu trên hệ máy Intellivision vào năm 1982.
+\\\\
+Phiên bản đầu tiên trên máy tính gia đình, Worm, được Peter Trefonas lập trình cho TRS-80 và xuất bản bởi tạp chí CLOAD vào năm 1978. Sau đó, tác giả phát triển các phiên bản cho PET và Apple II. Một phiên bản chính thức của trò chơi arcade Hustle, bản sao của Blockade, được phát hành bởi Milton Bradley trên TI-99/4A vào năm 1980.
+\\\\
+Snake Byte (1982) dành cho Atari 8-bit, Apple II và VIC-20 có lối chơi một người, nơi rắn ăn táo để hoàn thành màn chơi và dài hơn sau mỗi lần ăn. Trong Snake trên BBC Micro (1982) của Dave Bresnen, người chơi điều khiển rắn bằng các phím mũi tên trái/phải theo hướng rắn đang đi. Trò chơi tăng tốc độ khi rắn dài hơn và chỉ có một mạng.
+\\\\
+Nibbler (1982) là trò chơi arcade một người, nơi rắn di chuyển nhanh và vừa khít trong mê cung, khác biệt so với nhiều thiết kế rắn khác. Một phiên bản chơi đơn khác nằm trong trò chơi arcade Tron (1982), lấy chủ đề "Light Cycles". Tron đã làm mới lại ý tưởng trò chơi rắn, và nhiều tựa game sau này đã mượn chủ đề này.
+\\\\
+Từ năm 1991, Nibbles được đưa vào MS-DOS như một chương trình mẫu của QBasic. Năm 1992, Rattler Race được phát hành trong gói giải trí Microsoft Entertainment Pack thứ hai, bổ sung rắn đối thủ vào lối chơi ăn táo quen thuộc.
+
+\subsubsection{Di sản}
+Vào năm 1996, tạp chí Next Generation xếp hạng trò chơi này ở vị trí thứ 41 trong danh sách "100 Trò Chơi Hay Nhất Mọi Thời Đại", nhấn mạnh sự cần thiết của cả phản xạ nhanh và sự suy tính trước. Thay vì đặt tiêu đề cho một phiên bản cụ thể, họ đã liệt kê nó là "trò chơi Rắn" trong ngoặc kép.
+\\\\
+Vào ngày 29 tháng 11 năm 2012, Bảo tàng Nghệ thuật Hiện đại tại thành phố New York đã thông báo rằng phiên bản trò chơi Snake trên Nokia là một trong 40 trò chơi mà các nhà giám tuyển mong muốn thêm vào bộ sưu tập của bảo tàng trong tương lai.
+
+\subsection{Hướng dẫn chơi}
+\subsubsection{Mục Tiêu Của Trò Chơi}
+\begin{itemize}
+    \item Điều khiển con rắn ăn càng nhiều thức ăn (thường là các điểm nhỏ trên màn hình) càng tốt.
+    \item Mỗi khi ăn được thức ăn, con rắn sẽ dài thêm.
+    \item Trò chơi kết thúc nếu rắn đâm vào chính nó hoặc vào tường.
+\end{itemize}
+
+\subsubsection{Cách điều khiển}
+\begin{itemize}
+    \item Sử dụng các phím mũi tên trên bàn phím hoặc phím điều khiển trên thiết bị di động để di chuyển rắn:
+    \begin{itemize}
+        \item Mũi tên lên: Đi lên.
+        \item Mũi tên xuống: Đi xuống.
+        \item Mũi tên trái: Quẹo trái.
+        \item Mũi tên phải: Quẹo phải.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Quy tắc}
+\begin{itemize}
+    \item Rắn chỉ có thể di chuyển theo một hướng tại một thời điểm và không thể đi ngược lại hướng đang đi (ví dụ: nếu rắn đang đi lên thì không thể đi xuống ngay lập tức).
+    \item Khi rắn ăn thức ăn, độ dài của rắn tăng lên và tốc độ di chuyển có thể tăng lên.
+    \item Trò chơi kết thúc khi rắn:
+    \begin{itemize}
+        \item Đụng vào thân của chính nó.
+        \item Đụng vào tường.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Mẹo chơi}
+\begin{itemize}
+    \item Lên kế hoạch di chuyển trước: Đừng chỉ tập trung vào việc ăn thức ăn mà quên mất lối thoát.
+    \item Giữ khoảng cách với thân của rắn để tránh va chạm.
+    \item Thử đi theo các đường vòng tròn lớn để tạo không gian di chuyển rộng rãi.
+    \item Cẩn thận khi rắn dài ra, vì khả năng va chạm với thân của chính nó sẽ tăng lên.
+\end{itemize}
+
+\subsubsection{Biến thể}
+\begin{itemize}
+    \item Một số phiên bản game sẽ có những bổ sung như:
+    \begin{itemize}
+        \item Thức ăn đặc biệt: Có thể xuất hiện ngẫu nhiên và mang lại điểm số cao hơn.
+        \item Tường chắn: Gây khó khăn hơn trong việc di chuyển.
+        \item Chế độ không giới hạn: Khi đi qua tường, rắn sẽ xuất hiện ở phía đối diện của màn hình.
+    \end{itemize}
+\end{itemize}
+
+% ...
+\section{}
 \subsection{Công nghệ sử dụng}
 \begin{itemize}
     \item \textbf{React}: React được chọn làm nền tảng cho giao diện người dùng do khả năng xây dựng ứng dụng đơn trang (SPA) mạnh mẽ, giúp quản lý trạng thái và các thành phần UI một cách hiệu quả. Với cấu trúc component-based, React giúp chia các phần UI thành các khối nhỏ và tái sử dụng, từ đó tăng tính linh hoạt và dễ bảo trì cho dự án.
@@ -92,21 +244,6 @@
     \item \textbf{Input}: Input quản lý các sự kiện đầu vào từ người chơi, như bàn phím, chuột hoặc cảm ứng. Input giúp trò chơi xử lý hành động của người chơi và phản hồi lại, như di chuyển nhân vật, kích hoạt chức năng, hoặc điều khiển menu.
 \end{itemize}
 
-\subsection{Phân công công việc}
-\begin{itemize}
-    \item Phạm Tiến Anh: Tạo báo cáo, khái quát yêu cầu cơ bản, lập kế hoạch công việc, hỗ trợ lập trình game logic
-    \item Trần Mai Uyên Nhi: Thảo luận định hướng dự án, theo dõi tiến độ công việc của các thành viên.
-    \item Nguyễn Thanh Minh: nghiên cứu tech stack, khởi tạo code base, khởi tạo assets, animations, lập trình game logic
-    \item Trương Anh Vũ: tìm hiểu tech stack, lập trình game logic
-    \item Lưu Đinh Đại Đức: tìm hiểu tech stack, lập trình game logic
-\end{itemize}
-
-\subsection{Tỉ lệ biểu quyết}
-\begin{itemize}
-    \item Nhóm đưa ra quyết định dựa trên kiến thức nền tảng của các thành viên để chọn tech stack phù hợp.
-    \item Ý kiến được chọn nếu 4/5 thành viên đồng ý
-    \item Trong trường hợp có tranh cãi, trưởng nhóm sẽ có quyền quyết định cuối cùng.
-\end{itemize}
 \section{Đánh giá hợp đồng nhóm}
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
     \hline
@@ -158,55 +295,6 @@
     \end{tabular}
 \end{tabular}
 \newpage
-\section{Giới Thiệu và Hướng Dẫn Chơi Game}
-
-\subsection{Giới thiệu về trò chơi:}
-
-Trò chơi rắn săn mồi (Snake) là một tựa game giải trí phổ biến, dễ chơi nhưng rất gây nghiện. Trong trò chơi này, người chơi điều khiển một con rắn di chuyển trên màn hình để thu thập thức ăn. Mỗi lần con rắn ăn một món ăn, nó sẽ dài ra, và mục tiêu là di chuyển sao cho con rắn không tự đâm vào chính mình. Khi rắn đâm vào chính nó, trò chơi sẽ kết thúc.
-
-Trò chơi được thiết kế đơn giản, nhưng có tính lặp lại cao và yêu cầu sự tập trung, phản xạ tốt từ người chơi. Đây là một tựa game không giới hạn số lượng cấp độ, và tốc độ di chuyển của rắn có thể được tăng dần, tạo thêm độ khó và thử thách cho người chơi.
-
-\subsection{Hướng dẫn chơi:}
-
-\begin{itemize}
-\textbf{Mục tiêu của trò chơi:} Giúp rắn ăn thức ăn để tăng chiều dài. Hãy cố gắng tránh cho rắn đâm vào chính mình vì điều đó sẽ kết thúc trò chơi.
-\end{itemize}
-
-\textbf{Điều khiển:}
-
-Sử dụng các phím mũi tên để di chuyển rắn theo các hướng:
-
-\begin{itemize}
-    \item Mũi tên lên: Di chuyển lên.
-
-    \item Mũi tên xuống: Di chuyển xuống.
-
-    \item Mũi tên trái: Di chuyển sang trái.
-
-    \item Mũi tên phải: Di chuyển sang phải.
-\end{itemize}
-
-\textbf{Cách chơi:}
-
-\begin{enumerate}
-    \item Khởi động trò chơi và bắt đầu điều khiển rắn bằng các phím mũi tên.
-
-    \item Khi rắn chạm vào món ăn, nó sẽ dài ra thêm một đoạn và điểm số của bạn sẽ tăng lên.
-
-    \item Mục tiêu là di chuyển rắn càng lâu càng tốt mà không để rắn tự đâm vào chính nó.
-
-    \item Trò chơi kết thúc khi rắn va vào thân của chính nó. Bạn có thể bắt đầu lại trò chơi và cố gắng đạt điểm số cao hơn.
-\end{enumerate}
-
-\section{\textbf{Tính năng đặc biệt:}}
-
-\begin{itemize}
-    \item Tăng tốc độ: Khi người chơi ăn thức ăn, tốc độ di chuyển của rắn sẽ tăng lên, tạo thêm thử thách cho người chơi.
-\end{itemize}
-
-\begin{itemize}
-    \item Điểm số: Hệ thống điểm số tự động cập nhật khi người chơi ăn thức ăn, giúp người chơi thấy được tiến độ và đặt mục tiêu để vượt qua kỷ lục của mình.
-\end{itemize}
 
 \section{Tài Liệu Kỹ Thuật của Trò Chơi:}
 
@@ -281,6 +369,4 @@ Dữ liệu của rắn được lưu trữ dưới dạng mảng snakeParts, tr
 \textbf{Giải thuật điều khiển di chuyển:} Dựa trên hướng đi của người chơi, chương trình tính toán vị trí mới cho rắn và di chuyển các đoạn thân theo hướng đầu rắn để tạo hiệu ứng di chuyển.
 
 \textbf{Giải thuật sinh thức ăn ngẫu nhiên:} Tọa độ của thức ăn được sinh ra ngẫu nhiên trên màn hình với các giá trị chia hết cho kích thước ô lưới (grid size), giúp nó nằm gọn trong các ô của màn hình.
-
-
 \end{document}
