@@ -27,6 +27,8 @@
     breaklines=true, % Tự động ngắt dòng
     frame=single, % Khung bao quanh mã nguồn
 }
+\usepackage{tocloft} % Gói để chỉnh sửa mục lục
+\setlength{\cftsecnumwidth}{2.8em} % Tăng khoảng cách giữa số thứ tự và tiêu đề
 
 % \title{}
 % \author{}
@@ -95,10 +97,13 @@
 \end{center}
 \newpage
 
-\renewcommand{\contentsname}{\hfill \textbf{Mục lục} \hfill} % Căn giữa tiêu đề mục lục
+\renewcommand{\contentsname}{}
+\begin{center}
+    \Large \textbf{Mục lục}
+\end{center}
 \renewcommand\thesection{\Roman{section}.}
 \renewcommand\thesubsection{\arabic{subsection}.}
-\renewcommand\thesubsubsection{\thesubsection\arabic{subsubsection}}
+\renewcommand\thesubsubsection{\thesubsection\arabic{subsubsection}.}
 \tableofcontents
 
 \newpage
@@ -299,7 +304,6 @@ Vào ngày 29 tháng 11 năm 2012, Bảo tàng Nghệ thuật Hiện đại tạ
         };
     \end{lstlisting}
 \end{center}
-\vspace{2cm}
 
 \begin{center}
     \begin{itemize}
@@ -356,7 +360,6 @@ Vào ngày 29 tháng 11 năm 2012, Bảo tàng Nghệ thuật Hiện đại tạ
     };
     \end{lstlisting}
 \end{center}
-\vspace{2cm}
 
 \begin{center}
     \begin{itemize}
@@ -844,15 +847,12 @@ checkCollision() {
     \item Tích hợp hiệu ứng âm thanh và bảng xếp hạng trực tuyến.
 \end{itemize}
 
-
-
 \newpage
 % Task 5, 6, 7
 \section{Quá trình làm việc nhóm}
 % Task 5 - Mô tả quá trình làm việc nhóm : Dựa trên diễn biến công việc đã được nhóm thực hiện thực tế trong Trello hoặc Git.. nhóm SV trình bày quá trình làm việc của cả nhóm, các vấn đề đã xảy ra và nhóm đã giải quyết như thế nào. Phần này tối thiểu 2 trang, tối đa 5 trang.
 
 % Task 6 - Các kỹ năng mà nhóm SV áp dụng khi tham gia đồ án này. Phần này tối thiểu 1 trang, tối đa 3 trang.
-
 \subsection{Diễn biến công việc nhóm}
 Nhóm đã sử dụng Trello để phân công nhiệm vụ, theo dõi tiến độ và đánh giá mức độ hoàn thành công việc của từng thành viên. Quy trình làm việc diễn ra theo các giai đoạn sau:
 
@@ -879,11 +879,22 @@ Nhóm đã sử dụng Trello để phân công nhiệm vụ, theo dõi tiến �
     \end{itemize}
 \end{enumerate}
 \newpage
+
 \subsection{Giải quyết git conflicts}
-Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đó dùng câu git rebase để rebase nhánh đang có conflict lên main branch.\\
-\includegraphics[width=0.8\textwidth]{gitconflict1.png} \\
-\includegraphics[width=0.8\textwidth]{gitconflict2.png} \\
-\includegraphics[width=0.8\textwidth]{gitrebase3.png} \\
+Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đó dùng câu git rebase để rebase nhánh đang có conflict lên main branch.
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{gitconflict1.png}
+\end{center}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c}
+         \includegraphics[width=0.5\textwidth]{gitconflict2.png} & \includegraphics[width=0.5\textwidth]{gitrebase3.png} \\
+    \end{tabular}
+    % \caption{Caption}
+    % \label{tab:my_label}
+\end{table}
 
 \subsection{Kết quả công việc}
 \begin{itemize}
@@ -892,8 +903,8 @@ Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đ�
     \item Rèn luyện được kỹ năng làm việc nhóm và giải quyết vấn đề.
 \end{itemize}
 
-\newpage
-\subsection{Các kỹ năng áp dụng khi tham gia đồ án này}
+% \newpage
+\section{Các kỹ năng áp dụng khi tham gia đồ án này}
 \begin{enumerate}
     \item \textbf{Kỹ năng giao tiếp và làm việc nhóm:}
     \begin{itemize}
@@ -921,7 +932,7 @@ Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đ�
 \end{enumerate}
 
 % Task 7 - Đánh giá việc thực hiện hợp đồng nhóm
-\subsection{Đánh giá hợp đồng nhóm}
+\section{Đánh giá hợp đồng nhóm}
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
     \hline
     \textbf{Tiêu chí} & \textbf{4 - Xuất sắc} & \textbf{3 - Tốt} & \textbf{2 - Trung bình} & \textbf{1 - Kém}\\
@@ -938,7 +949,7 @@ Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đ�
     \hline
 \end{tabular}
 
-\subsubsection{Đánh giá từng thành viên}
+\subsection{Đánh giá từng thành viên}
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{1.5} % Adjust row height
@@ -962,7 +973,7 @@ Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đ�
 \label{tab:member-evaluation}
 \end{table}
 
-\subsubsection{Thành viên}
+\subsection{Thành viên}
 \begin{tabular}{p{5cm} p{5cm} p{5cm}}
     \textbf{Member 1} & \textbf{Member 2} & \textbf{Member 3} \\
     \begin{tabular}{@{}c@{}}
