@@ -1,0 +1,165 @@
+\documentclass{beamer}
+\usepackage[utf8]{vietnam}  % Hỗ trợ tiếng Việt
+\usepackage{listings} % Gói để hiển thị mã nguồn
+\usetheme{Madrid}
+\title{Báo cáo Đồ án: Snake Game}
+\author{Nhóm The Fellowship of the Mind}
+\date{\today}
+
+\begin{document}
+
+% Title slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Table of contents
+\begin{frame}{Mục Lục}
+    \tableofcontents
+\end{frame}
+
+% Section: Giới thiệu
+\section{Giới thiệu}
+\begin{frame}{Tổng quan dự án}
+    \begin{itemize}
+        \item Trò chơi \textbf{Snake Game} - trò chơi hành động cổ điển.
+        \item Mục tiêu: Điều khiển rắn để ăn thức ăn và tránh va chạm.
+        \item Đồ án được phát triển với hai phiên bản:
+        \begin{itemize}
+            \item \textbf{V1:} Sử dụng C++.
+            \item \textbf{V2:} Sử dụng Plain JavaScript và HTML.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Section: Tài liệu kỹ thuật
+\section{Tài liệu kỹ thuật}
+\begin{frame}{Cấu trúc trò chơi (V1 - C++)}
+    \begin{itemize}
+        \item \textbf{CSnake:} Quản lý trạng thái rắn và các phương thức:
+        \begin{itemize}
+            \item \texttt{initSnake()} - Khởi tạo rắn ban đầu.
+            \item \texttt{updateSnake()} - Cập nhật vị trí và kiểm tra va chạm.
+            \item \texttt{drawBackground()} - Hiển thị rắn và bảng chơi.
+        \end{itemize}
+        \item \textbf{Main Loop:} Điều khiển logic chơi qua vòng lặp chính:
+        \begin{itemize}
+            \item Kiểm tra đầu vào.
+            \item Cập nhật trạng thái rắn.
+            \item Tạo thức ăn mới khi cần.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Cấu trúc trò chơi (V2 - JavaScript)}
+    \begin{itemize}
+        \item \textbf{Snake:} Quản lý trạng thái và logic di chuyển của rắn.
+        \item \textbf{Food:} Sinh ngẫu nhiên vị trí thức ăn.
+        \item \textbf{Game:} Quản lý toàn bộ vòng đời trò chơi, bao gồm:
+        \begin{itemize}
+            \item Vẽ màn hình.
+            \item Cập nhật điểm.
+            \item Kiểm tra va chạm.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Đoạn mã quan trọng (V2)}
+    \textbf{Cập nhật trạng thái của rắn:}
+    \begin{lstlisting}[language=JavaScript]
+update() {
+    const head = {
+        x: this.body[0].x + this.direction.x,
+        y: this.body[0].y + this.direction.y
+    };
+
+    if (head.x < 0) head.x = this.gridSize - 1;
+    if (head.x >= this.gridSize) head.x = 0;
+    if (head.y < 0) head.y = this.gridSize - 1;
+    if (head.y >= this.gridSize) head.y = 0;
+
+    this.body.unshift(head);
+    if (!this.shouldGrow) this.body.pop();
+    else this.shouldGrow = false;
+}
+    \end{lstlisting}
+\end{frame}
+
+% Section: Kỹ năng đã áp dụng
+\section{Kỹ năng đã áp dụng}
+\begin{frame}{Kỹ năng đã áp dụng}
+    \begin{itemize}
+        \item \textbf{Kỹ năng lập trình:}
+        \begin{itemize}
+            \item Phát triển logic game với C++ và JavaScript.
+            \item Thiết kế giao diện đơn giản nhưng hiệu quả.
+        \end{itemize}
+        \item \textbf{Kỹ năng làm việc nhóm:}
+        \begin{itemize}
+            \item Sử dụng Trello và Slack để phối hợp.
+            \item Quản lý mã nguồn và giải quyết xung đột trên GitHub.
+        \end{itemize}
+        \item \textbf{Kỹ năng giải quyết vấn đề:}
+        \begin{itemize}
+            \item Tìm giải pháp tối ưu để cải thiện hiệu suất.
+            \item Sửa lỗi phát sinh và cải thiện trải nghiệm người dùng.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Section: Kết quả đạt được
+\section{Kết quả đạt được}
+\begin{frame}{Kết quả đạt được}
+    \begin{itemize}
+        \item \textbf{Hoàn thành đúng hạn:}
+        \begin{itemize}
+            \item Hai phiên bản game chạy ổn định.
+        \end{itemize}
+        \item \textbf{Tài liệu kỹ thuật:}
+        \begin{itemize}
+            \item Cung cấp báo cáo chi tiết và chuyên sâu.
+        \end{itemize}
+        \item \textbf{Phát triển kỹ năng cá nhân:}
+        \begin{itemize}
+            \item Cải thiện kỹ năng lập trình và làm việc nhóm.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Section: Hướng mở rộng
+\section{Hướng mở rộng}
+\begin{frame}{Hướng mở rộng}
+    \begin{itemize}
+        \item \textbf{Cải tiến giao diện:}
+        \begin{itemize}
+            \item Thêm animations và âm thanh.
+        \end{itemize}
+        \item \textbf{Tính năng mới:}
+        \begin{itemize}
+            \item Chế độ chơi nhiều người.
+            \item Tăng độ khó theo thời gian.
+        \end{itemize}
+        \item \textbf{Tích hợp công nghệ mới:}
+        \begin{itemize}
+            \item Sử dụng React và Phaser cho phiên bản web.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Section: Kết luận
+\section{Kết luận}
+\begin{frame}{Tổng kết}
+    \begin{itemize}
+        \item Hoàn thành mục tiêu dự án: Trò chơi hoạt động tốt, ổn định.
+        \item Rèn luyện kỹ năng làm việc nhóm và lập trình.
+        \item Đặt nền tảng cho các dự án phức tạp hơn trong tương lai.
+    \end{itemize}
+\end{frame}
+
+% Thank you slide
+\begin{frame}{Cảm ơn}
+    \centering
+    \Huge Cảm ơn quý thầy cô và các bạn đã lắng nghe!
+\end{frame}
+
+\end{document}
