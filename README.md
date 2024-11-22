@@ -48,12 +48,4 @@
 - **Assets**: viết báo cáo, hợp đồng nhóm
 
 ## Cách chạy project
-- Node version: `node v20.11.1`
-- Clone and run source:
-```shell
-    git clone https://github.com/UIT-24730009/SnakeGame
-    cd SnakeGame
-    npm i
-    npm run dev
-```
-- Truy cập vào  `http://localhost:8080`
+- Khởi chạy project thông qua file index.html trên trình duyệt
