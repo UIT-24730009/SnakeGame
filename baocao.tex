@@ -13,6 +13,20 @@
     urlcolor=blue,
 }
 \usepackage{array}
+\usepackage{listings} % Gói để hiển thị mã nguồn
+\usepackage{xcolor} % Để tô màu cho mã nguồn
+\lstset{
+    language=C++, % Ngôn ngữ lập trình (có thể thay bằng Java, C++, etc.)
+    basicstyle=\ttfamily\small, % Font chữ cơ bản
+    keywordstyle=\color{blue}\bfseries, % Màu sắc cho từ khóa
+    commentstyle=\color{green!50!black}, % Màu sắc cho chú thích
+    stringstyle=\color{red}, % Màu sắc cho chuỗi
+    numbers=left, % Đánh số dòng ở bên trái
+    numberstyle=\tiny\color{gray}, % Kiểu số dòng
+    stepnumber=1, % Hiển thị số dòng cách nhau 1 dòng
+    breaklines=true, % Tự động ngắt dòng
+    frame=single, % Khung bao quanh mã nguồn
+}
 
 % \title{}
 % \author{}
@@ -89,7 +103,7 @@
 
 \newpage
 % Noi dung bao cao
-% task 1
+% Task 1
 \section{Hợp đồng nhóm}
 \subsection{Thông tin}
 \renewcommand{\arraystretch}{1.5}
@@ -141,7 +155,7 @@
     \item Trong trường hợp có tranh cãi, trưởng nhóm sẽ có quyền quyết định cuối cùng.
 \end{itemize}
 
-% task 2
+% Task 2
 \section{Công cụ và không gian làm việc}
 \begin{itemize}
     \item \href{https://github.com/UIT-24730009/SnakeGame}{\large \textbf{Github repository}} - Công cụ làm việc nhóm.
@@ -150,7 +164,7 @@
     \item \href{https://github.com/users/UIT-24730009/projects/1/views/1}{\large \textbf{Github Projects}} - Công cụ quản lý, theo dõi tiến độ công việc.
 \end{itemize}
 
-% task 3
+% Task 3
 \section{Giới thiệu và hướng dẫn chơi Game}
 \subsection{Giới thiệu về trò chơi rắn săn mồi (Snake Game)}
 Snake là một thể loại trò chơi hành động trong đó người chơi điều khiển phần đầu của một đường thẳng ngày càng dài, thường được thiết kế theo hình dạng một con rắn. Người chơi phải tránh để rắn va vào chướng ngại vật hoặc chính cơ thể mình, điều này trở nên khó hơn khi rắn dài ra.
@@ -223,46 +237,490 @@ Vào ngày 29 tháng 11 năm 2012, Bảo tàng Nghệ thuật Hiện đại tạ
     \end{itemize}
 \end{itemize}
 
-% ...
-\section{}
-\subsection{Công nghệ sử dụng}
+% Task 4
+\section{Tài liệu kỹ thuật của trò chơi}
+\subsection{Tóm tắt}
 \begin{itemize}
-    \item \textbf{React}: React được chọn làm nền tảng cho giao diện người dùng do khả năng xây dựng ứng dụng đơn trang (SPA) mạnh mẽ, giúp quản lý trạng thái và các thành phần UI một cách hiệu quả. Với cấu trúc component-based, React giúp chia các phần UI thành các khối nhỏ và tái sử dụng, từ đó tăng tính linh hoạt và dễ bảo trì cho dự án.
-
-    \item \textbf{Phaser}: Phaser là một thư viện game 2D mạnh mẽ và phù hợp cho các dự án trò chơi nhẹ nhàng như trò rắn săn mồi. Nó cung cấp các công cụ giúp quản lý các yếu tố trong trò chơi, từ các hoạt cảnh, xử lý va chạm, cho đến việc thiết lập các hiệu ứng động. Kết hợp với React, Phaser giúp duy trì tính tương tác động trong khi vẫn đảm bảo hiệu suất tốt và dễ quản lý.
-
-    \item \textbf{Thành phần trong trò chơi}
-
-     \item \textbf{Game}: `Game` là đối tượng cốt lõi của Phaser, dùng để khởi tạo toàn bộ trò chơi. Nó chịu trách nhiệm thiết lập cấu hình ban đầu (kích thước, chế độ hiển thị, và các tùy chọn khác), tạo ra môi trường để các scene hoạt động. Game là trung tâm điều khiển các thành phần khác và xử lý vòng lặp game liên tục.
-
-    \item \textbf{Scene}: Scene là môi trường nơi trò chơi diễn ra, đóng vai trò tổ chức các đối tượng và logic trong mỗi phần của trò chơi (ví dụ: màn chơi, menu, hoặc màn hình kết thúc). Scene giúp phân tách các trạng thái khác nhau của trò chơi, cho phép chuyển đổi dễ dàng giữa chúng mà không ảnh hưởng đến các phần khác. Mỗi scene có thể quản lý hoạt cảnh, tương tác, và các sự kiện riêng.
-
-    \item \textbf{Camera}: Camera giúp xác định khu vực của scene mà người chơi sẽ thấy. Trong các trò chơi lớn, camera có thể di chuyển để theo dõi các đối tượng chính hoặc thu phóng để tạo ra những hiệu ứng thị giác. Camera có thể điều chỉnh để tạo ra các trải nghiệm khác nhau, như tập trung vào các đối tượng nhất định hoặc cho phép người chơi xem toàn bộ scene.
-
-    \item \textbf{Physics}: Đây là hệ thống quản lý va chạm và các quy luật vật lý trong trò chơi. Phaser cung cấp nhiều loại vật lý, như Arcade Physics, giúp tạo ra các tương tác đơn giản và hiệu quả giữa các đối tượng. Physics đảm bảo các đối tượng di chuyển, va chạm, và phản ứng theo các quy tắc mà trò chơi yêu cầu.
-
-    \item \textbf{Input}: Input quản lý các sự kiện đầu vào từ người chơi, như bàn phím, chuột hoặc cảm ứng. Input giúp trò chơi xử lý hành động của người chơi và phản hồi lại, như di chuyển nhân vật, kích hoạt chức năng, hoặc điều khiển menu.
+    \item Khi chạy chương trình, khi bảng được khởi tạo; con rắn sẽ được khởi tạo ở vị trí giữa bảng.
+    \item Rắn sẽ tự di chuyển theo hướng cho trước (Hướng di chuyển: \textbf{Phải})
+    \item Người chơi phải điều khiển hướng đi của của con rắn bằng các keyword tương ứng từ bàn phím: \textbf{W} - Đi lên, \textbf{A} - Qua trái, \textbf{D} - Qua phải, \textbf{S} - Đi lùi.
+    \item Thức ăn được khởi tạo ở vị trí ngẫu nhiên trên bảng.
+    \item Mục tiêu của trò chơi là ăn càng nhiều để có được số điểm cao nhất (\textbf{Lưu ý:} Trò chơi sẽ kết thúc nếu người chơi đụng vào tường hoặc thân).
+    \item Điểm được hiển thị ở dưới cùng bảng trò chơi.
 \end{itemize}
 
-\section{Đánh giá hợp đồng nhóm}
+\subsection{Kỹ thuật của trò chơi}
+\subsubsection{Hàm chính}
+\begin{center}
+    \begin{itemize}
+        \item \textbf{class CSnake} bao gồm các thuộc tính và phương thức sau:
+        \begin{itemize}
+            \item Thuộc tính:
+            \begin{itemize}
+                \item length: Chiều dài của rắn.
+                \item direction: Hướng di chuyển của rắn.
+                \item foodCounter: Đếm số lượng thức ăn đã ăn.
+                \item ground[MAX][MAX]: Bảng trò chơi.
+                \item body[HEIGHT * WIDTH]: Vị trí các phần của rắn.
+            \end{itemize}
+        \end{itemize}
+        \begin{itemize}
+            \item Phương thức:
+            \begin{itemize}
+                \item initSnake(): Khởi tạo vị trí ban đầu của rắn ở giữa bảng.
+                \item initGround(): Khởi tạo bảng trò chơi, với các bức tường xung quanh.
+                \item updateFood(): Khởi tạo ăn mới tại vị trí ngẫu nhiên trên bảng.
+                \item updateSnake(int delay): Cập nhật vị trí của rắn, kiểm tra va chạm và xử lý ăn thức ăn.
+                \item drawBackground(): Vẽ bảng trò chơi và các đối tượng.
+                \item inputReading(const char ch): Xử lý đầu vào từ người chơi.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{lstlisting}
+        class CSnake
+        {
+        private:
+            int length;
+            int direction;
+            int foodCounter;
+            int ground[MAX][MAX];
+            Coordinate body[HEIGHT * WIDTH];
+        
+        public:
+            void initSnake();
+            void initGround();
+            void updateFood();
+            void updateSnake(int delay);
+            void inputReading(const char ch);
+            int getFoodCounter();
+            void drawBackground();
+        };
+    \end{lstlisting}
+\end{center}
+\vspace{2cm}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void snake::initSnake()} - Khởi tạo rắn, và vị trí ban đầu cho rắn.
+    \end{itemize}
+    
+    \begin{lstlisting}
+    void CSnake::initSnake()
+    {
+        length = SNAKE_LENGTH;
+        // Snake will appear at middle of the board
+        body[0].x = WIDTH / 2;
+        body[0].y = HEIGHT / 2;
+        direction = input;
+        foodCounter = 0;
+    
+        for (int i = 1; i < length; i++)
+        {
+            body[i].x = body[i - 1].x - dx[direction];
+            body[i].y = body[i - 1].y - dy[direction];
+        }
+    
+        for (int i = 0; i < length; i++)
+        {
+            ground[body[i].y][body[i].x] = SNAKE;
+        }
+    };
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void CSnake::initGround()} - Khởi tạo bảng trò chơi.
+    \end{itemize}
+    
+    \begin{lstlisting}
+    void CSnake::initGround()
+    {
+        for (i = 0; i < MAX; i++)
+            for (j = 0; j < MAX; j++)
+                ground[i][j] = 0;
+    
+        for (i = 0; i <= WIDTH + 1; i++)
+        {
+            ground[0][i] = WALL;
+            ground[HEIGHT + 1][i] = WALL;
+        }
+    
+        for (i = 0; i <= HEIGHT + 1; i++)
+        {
+            ground[i][0] = WALL;
+            ground[i][WIDTH + 1] = WALL;
+        }
+    };
+    \end{lstlisting}
+\end{center}
+\vspace{2cm}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void CSnake::updateFood()} - Khởi tạo vị trí thức ăn xuất hiện ngẫu nhiên trên bảng; đảm bảo thức ăn không bị khởi tạo trên rắn hoặc tường.
+    \end{itemize}
+    
+    \begin{lstlisting}
+    void CSnake::updateFood()
+    {
+        int x, y;
+    
+        do
+        {
+            x = rand() % WIDTH + 1;
+            y = rand() % HEIGHT + 1;
+        } while (ground[y][x] != NOTHING);
+    
+        ground[y][x] = FOOD;
+        foodCounter++;
+    };
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void CSnake::updateSnake(int delay)}
+        \begin{itemize}
+            \item Hàm giúp cập nhật vị trí của rắn.
+            \item Kiểm tra va chạm.
+            \item Xử lý ăn thức ăn.
+            \item Cập nhật trạng thái trên ground.
+            \item Cập nhật điểm (nếu rắn ăn thức ăn).
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{lstlisting}
+    void CSnake::updateSnake(int delay)
+    {
+        int i;
+        Coordinate prev[HEIGHT * WIDTH];
+    
+        for (i = 0; i < length; i++)
+        {
+            prev[i].x = body[i].x;
+            prev[i].y = body[i].y;
+        }
+    
+        if (input != EXIT || !oppositeDirection(direction, input))
+            direction = input;
+    
+        // Update head
+        body[0].x = prev[0].x + dx[direction];
+        body[0].y = prev[0].y + dy[direction];
+    
+        // Check if head position is not colliding with anything
+        if (ground[body[0].y][body[0].x] < NOTHING)
+        {
+            item = -1;
+            ground[HEIGHT + 2][WIDTH / 2] = GAMEOVER;
+            return;
+        }
+    
+        // If head finds a piece of food
+        if (ground[body[0].y][body[0].x] == FOOD)
+        {
+            length++;
+            item = FOOD;
+        }
+        else
+        {
+            ground[body[length - 1].y][body[length - 1].x] = NOTHING;
+            item = NOTHING;
+        }
+    
+        ground[body[0].y][body[0].x] = SNAKE;
+    
+        // Move the rest of the body
+        for (i = 1; i < length; i++)
+        {
+            body[i].x = prev[i - 1].x;
+            body[i].y = prev[i - 1].y;
+            ground[body[i].y][body[i].x] = SNAKE;
+        }
+    
+        ground[HEIGHT + 3][WIDTH / 2] = SCORE;
+        usleep(delay);
+        return;
+    };
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void CSnake::drawBackground()}
+        \begin{itemize}
+            \item Xóa màn hình.
+            \item Duyệt qua từng ô trong ground để vẽ:
+            \begin{itemize}
+                \item Tường.
+                \item Thân rắn, đầu rắn.
+                \item Thức ăn.
+                \item Kết thúc game hoặc điểm số.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{lstlisting}
+    void CSnake::drawBackground()
+    {
+        clear_background();
+    
+        for (i = 0; i <= HEIGHT + 4; i++)
+        {
+            for (j = 0; j <= WIDTH + 4; j++)
+            {
+                switch (ground[i][j])
+                {
+                case NOTHING:
+                    cout << " ";
+                    break;
+                case WALL:
+                    if ((i == 0 && j == 0) || (i == 0 && j == WIDTH + 1) || (i == HEIGHT + 1 && j == 0) || (i == HEIGHT + 1 && j == WIDTH + 1))
+                    {
+                        cout << "+";
+                    }
+                    else if (j == 0 || j == HEIGHT + 1)
+                    {
+                        cout << "|";
+                    }
+                    else
+                    {
+                        cout << "-";
+                    }
+                    break;
+                case SNAKE:
+                    if (i == body[0].y && j == body[0].x)
+                    {
+                        cout << "#";
+                    }
+                    else
+                    {
+                        cout << "+";
+                    }
+                    break;
+                case FOOD:
+                    cout << "%";
+                    break;
+                case GAMEOVER:
+                    cout << "GAME OVER!";
+                    break;
+                case SCORE:
+                    cout << "Score: " << (foodCounter - 1);
+                    break;
+                }
+            }
+    
+            cout << endl;
+        }
+    };
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item \textbf{void CSnake::inputReading(const char ch)} - Hàm đọc phím điều khiển từ người chơi.
+    \end{itemize}
+    
+    \begin{lstlisting}
+    // Snake movement
+    void CSnake::inputReading(const char ch)
+    {
+        if (ch == 'd')
+        {
+            input = RIGHT;
+        }
+        if (ch == 'w')
+        {
+            input = UP;
+        }
+        if (ch == 'a')
+        {
+            input = LEFT;
+        }
+        if (ch == 's')
+        {
+            input = DOWN;
+        }
+    };
+    \end{lstlisting}
+\end{center}
+
+\subsubsection{Hàm main()}
+\begin{center}
+    \begin{itemize}
+        \item Khởi tạo game:
+        \begin{itemize}
+            \item Gọi và khởi tạo đối tượng \textbf{snake}.
+            \item Gọi các hàm \textbf{initGround()}, \textbf{initSnake()}, \textbf{updateFood()}, và \textbf{drawBackground()}.
+        \end{itemize}
+        
+        \item Vòng lặp game:
+        \begin{itemize}
+            \item Kiểm tra phím bấm bằng \textbf{\_kbhit()}. Nếu có, đọc phím (\textbf{cin >> ch}) và chuyển hướng.
+            \item Cập nhật trạng thái rắn (\textbf{updateSnake()}).
+            \item Vẽ bảng chơi (\textbf{drawBackground()}).
+            \item Nếu rắn ăn thức ăn, tạo thêm thức ăn mới (\textbf{updateFood()}).
+        \end{itemize}
+        
+        \item Kết thúc:
+        \begin{itemize}
+            \item Khi rắn đụng tường hoặc thân, thoát khỏi vòng lặp và kết thúc chương trình.
+        \end{itemize}
+    \end{itemize}
+
+    \begin{lstlisting}
+        int main()
+    {
+        char ch;
+        microseconds = 100000;
+        srand(time(NULL));
+    
+        CSnake snake;
+        snake.initGround();
+        snake.initSnake();
+        snake.updateFood();
+        snake.drawBackground();
+    
+        do
+        {
+            if (_kbhit())
+            {
+                cin >> ch;
+                snake.inputReading(ch);
+            }
+    
+            snake.updateSnake(microseconds);
+            snake.drawBackground();
+    
+            if (item == FOOD)
+            {
+                snake.updateFood();
+            }
+        } while (item >= 0 && input != EXIT);
+    
+        snake.drawBackground();
+        return 0;
+    }
+    \end{lstlisting}
+\end{center}
+
+\subsubsection{Hàm hỗ trợ}
+\begin{center}
+    \begin{itemize}
+        \item Hàm giúp di chuyển con trỏ đến vị trí (x, y) trong terminal.
+    \end{itemize}
+    
+    \begin{lstlisting}
+        void gotoxy(int x, int y)
+        {
+            move(y, x);
+        }
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item Hàm giúp kiểm tra xem có phím nào được nhấn không.
+    \end{itemize}
+    
+    \begin{lstlisting}
+        // http://www.flipcode.com/archives/_kbhit_for_Linux.shtml
+        int _kbhit()
+        {
+            static const int STDIN = 0;
+            static bool initialized = false;
+        
+            if (!initialized)
+            {
+                // Use termios to turn off line buffering
+                termios term;
+                tcgetattr(STDIN, &term);
+                term.c_lflag &= ~ICANON;
+                tcsetattr(STDIN, TCSANOW, &term);
+                setbuf(stdin, NULL);
+                initialized = true;
+            }
+        
+            // int bytesWaiting;
+            ioctl(STDIN, FIONREAD, &bytesWaiting);
+            return bytesWaiting;
+        }
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item Hàm giúp xóa màn hình terminal.
+    \end{itemize}
+    
+    \begin{lstlisting}
+        void clear_background(void)
+        {
+            system(clearcommand);
+        }
+    \end{lstlisting}
+\end{center}
+
+\begin{center}
+    \begin{itemize}
+        \item Hàm giúp kiểm tra xem hướng di chuyển có đối lập không.
+    \end{itemize}
+    
+    \begin{lstlisting}
+        int oppositeDirection(int input1, int input2)
+        {
+            if (input1 == RIGHT && input2 == LEFT)
+            {
+                return 1;
+            }
+            if (input1 == LEFT && input2 == RIGHT)
+            {
+                return 1;
+            }
+            if (input1 == UP && input2 == DOWN)
+            {
+                return 1;
+            }
+            if (input1 == DOWN && input2 == UP)
+            {
+                return 1;
+            }
+        
+            return 0;
+        }
+    \end{lstlisting}
+\end{center}
+
+% Task 5, 6, 7 - chua lam
+\section{Quá trình làm việc nhóm}
+% Task 5 - Mô tả quá trình làm việc nhóm : Dựa trên diễn biến công việc đã được nhóm thực hiện thực tế trong Trello hoặc Git.. nhóm SV trình bày quá trình làm việc của cả nhóm, các vấn đề đã xảy ra và nhóm đã giải quyết như thế nào. Phần này tối thiểu 2 trang, tối đa 5 trang.
+
+% Task 6 - Các kỹ năng mà nhóm SV áp dụng khi tham gia đồ án này. Phần này tối thiểu 1 trang, tối đa 3 trang.
+\subsection{Kỹ năng đạt được}
+
+% Task 7 - Đánh giá việc thực hiện hợp đồng nhóm
+\subsection{Đánh giá hợp đồng nhóm}
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
     \hline
-    \textbf{Tiêu chí} & \textbf{4 - Xuất sắc} & \textbf{3 - Tốt} & \textbf{2 - Trung bình} & \textbf{1 - Kém} \\
+    \textbf{Tiêu chí} & \textbf{4 - Xuất sắc} & \textbf{3 - Tốt} & \textbf{2 - Trung bình} & \textbf{1 - Kém}\\
     \hline
-    \textbf{Thái độ} & Không bao giờ chỉ trích công khai dự án hoặc công việc của người khác. Luôn có thái độ tích cực. & Hiếm khi chỉ trích công khai dự án hoặc công việc của người khác. & Thỉnh thoảng chỉ trích công khai dự án hoặc công việc của các thành viên khác trong nhóm. & Thường xuyên chỉ trích công khai dự án hoặc công việc của các thành viên khác trong nhóm. \\
+    \textbf{Thái độ} & Không bao giờ chỉ trích công khai dự án hoặc công việc của người khác. Luôn có thái độ tích cực. & Hiếm khi chỉ trích công khai dự án hoặc công việc của người khác. & Thỉnh thoảng chỉ trích công khai dự án hoặc công việc của các thành viên khác trong nhóm. & Thường xuyên chỉ trích công khai dự án hoặc công việc của các thành viên khác trong nhóm.\\
     \hline
-    \textbf{Đóng góp} & Thường xuyên cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Là một người lãnh đạo rõ ràng và đóng góp nhiều nỗ lực. & Thường cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Là một thành viên nhóm mạnh và cố gắng hết sức. & Thỉnh thoảng cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Làm những gì được yêu cầu. & Hiếm khi cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Có thể từ chối tham gia. \\
+    \textbf{Đóng góp} & Thường xuyên cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Là một người lãnh đạo rõ ràng và đóng góp nhiều nỗ lực. & Thường cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Là một thành viên nhóm mạnh và cố gắng hết sức. & Thỉnh thoảng cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Làm những gì được yêu cầu. & Hiếm khi cung cấp ý tưởng hữu ích khi tham gia vào nhóm và thảo luận trong lớp. Có thể từ chối tham gia.\\
     \hline
-    \textbf{Tinh thần trách nhiệm} & Sẵn lòng chấp nhận và hoàn thành vai trò cá nhân trong nhóm. & Chấp nhận và hoàn thành vai trò cá nhân trong nhóm. & Đóng góp cho nhóm khi được nhắc nhở. & Chỉ đóng góp cho nhóm khi được nhắc nhở. \\
+    \textbf{Tinh thần trách nhiệm} & Sẵn lòng chấp nhận và hoàn thành vai trò cá nhân trong nhóm. & Chấp nhận và hoàn thành vai trò cá nhân trong nhóm. & Đóng góp cho nhóm khi được nhắc nhở. & Chỉ đóng góp cho nhóm khi được nhắc nhở.\\
     \hline
-    \textbf{Giải quyết vấn đề} & Chủ động tìm kiếm và đề xuất các giải pháp cho vấn đề. & Cải thiện các giải pháp được đề xuất bởi người khác. & Không đề xuất hoặc cải thiện giải pháp, nhưng sẵn lòng thử các giải pháp do người khác đề xuất. & Không cố gắng giải quyết vấn đề hoặc giúp người khác giải quyết vấn đề. Để người khác làm công việc. \\
+    \textbf{Giải quyết vấn đề} & Chủ động tìm kiếm và đề xuất các giải pháp cho vấn đề. & Cải thiện các giải pháp được đề xuất bởi người khác. & Không đề xuất hoặc cải thiện giải pháp, nhưng sẵn lòng thử các giải pháp do người khác đề xuất. & Không cố gắng giải quyết vấn đề hoặc giúp người khác giải quyết vấn đề. Để người khác làm công việc.\\
     \hline
-    \textbf{Chất lượng công việc} & Cung cấp công việc với chất lượng cao nhất. & Cung cấp công việc chất lượng cao. & Cung cấp công việc thỉnh thoảng cần được kiểm tra/làm lại bởi các thành viên khác trong nhóm để đảm bảo chất lượng. & Cung cấp công việc thường cần được kiểm tra/làm lại bởi người khác để đảm bảo chất lượng. \\
+    \textbf{Chất lượng công việc} & Cung cấp công việc với chất lượng cao nhất. & Cung cấp công việc chất lượng cao. & Cung cấp công việc thỉnh thoảng cần được kiểm tra/ làm lại bởi các thành viên khác trong nhóm để đảm bảo chất lượng. & Cung cấp công việc thường cần được kiểm tra/làm lại bởi người khác để đảm bảo chất lượng.\\
     \hline
 \end{tabular}
 
-\subsection{Đánh giá từng thành viên}
-\subsection{Chỉ tiêu đánh giá}
+\subsubsection{Đánh giá từng thành viên}
+
+\subsubsection{Chỉ tiêu đánh giá}
 \begin{tabular}{p{5cm} p{5cm} p{5cm}}
     \textbf{Member 1} & \textbf{Member 2} & \textbf{Member 3} \\
     \begin{tabular}{@{}c@{}}
@@ -294,79 +752,94 @@ Vào ngày 29 tháng 11 năm 2012, Bảo tàng Nghệ thuật Hiện đại tạ
         % \includegraphics[width=5cm]{signature.png}
     \end{tabular}
 \end{tabular}
-\newpage
 
-\section{Tài Liệu Kỹ Thuật của Trò Chơi:}
+% % ...
+% % \section{Tài Liệu Kỹ Thuật của Trò Chơi:}
+% % \subsection{Công nghệ sử dụng}
+% % \begin{itemize}
+% %     \item \textbf{React}: React được chọn làm nền tảng cho giao diện người dùng do khả năng xây dựng ứng dụng đơn trang (SPA) mạnh mẽ, giúp quản lý trạng thái và các thành phần UI một cách hiệu quả. Với cấu trúc component-based, React giúp chia các phần UI thành các khối nhỏ và tái sử dụng, từ đó tăng tính linh hoạt và dễ bảo trì cho dự án.
 
-\subsection{Sơ lược về các chức năng chính:}
+% %     \item \textbf{Phaser}: Phaser là một thư viện game 2D mạnh mẽ và phù hợp cho các dự án trò chơi nhẹ nhàng như trò rắn săn mồi. Nó cung cấp các công cụ giúp quản lý các yếu tố trong trò chơi, từ các hoạt cảnh, xử lý va chạm, cho đến việc thiết lập các hiệu ứng động. Kết hợp với React, Phaser giúp duy trì tính tương tác động trong khi vẫn đảm bảo hiệu suất tốt và dễ quản lý.
 
-\begin{itemize}
-    \item \textbf{Di chuyển và kiểm soát rắn}: Người chơi có thể điều khiển rắn theo các hướng lên, xuống, trái và phải. Hướng di chuyển của rắn được xác định dựa trên đầu vào của bàn phím.
+% %     \item \textbf{Thành phần trong trò chơi}
 
-    \item \textbf{Hệ thống va chạm:} Trò chơi có chức năng phát hiện va chạm giữa đầu rắn và thân rắn, giúp trò chơi kết thúc nếu rắn đâm vào chính mình.
+% %     \item \textbf{Game}: `Game` là đối tượng cốt lõi của Phaser, dùng để khởi tạo toàn bộ trò chơi. Nó chịu trách nhiệm thiết lập cấu hình ban đầu (kích thước, chế độ hiển thị, và các tùy chọn khác), tạo ra môi trường để các scene hoạt động. Game là trung tâm điều khiển các thành phần khác và xử lý vòng lặp game liên tục.
 
-    \item \textbf{Hệ thống tạo thức ăn:} Thức ăn sẽ xuất hiện ở vị trí ngẫu nhiên trong khu vực chơi. Khi rắn ăn được thức ăn, chiều dài của nó sẽ tăng lên, và thức ăn mới sẽ được sinh ra ở vị trí khác.
+% %     \item \textbf{Scene}: Scene là môi trường nơi trò chơi diễn ra, đóng vai trò tổ chức các đối tượng và logic trong mỗi phần của trò chơi (ví dụ: màn chơi, menu, hoặc màn hình kết thúc). Scene giúp phân tách các trạng thái khác nhau của trò chơi, cho phép chuyển đổi dễ dàng giữa chúng mà không ảnh hưởng đến các phần khác. Mỗi scene có thể quản lý hoạt cảnh, tương tác, và các sự kiện riêng.
 
-    \item \textbf{Hiệu ứng animations cho rắn:} Các đoạn của rắn bao gồm đầu, thân, và đuôi, đều có các hiệu ứng animations riêng, tạo cảm giác mượt mà khi rắn di chuyển.
-\end{itemize}
+% %     \item \textbf{Camera}: Camera giúp xác định khu vực của scene mà người chơi sẽ thấy. Trong các trò chơi lớn, camera có thể di chuyển để theo dõi các đối tượng chính hoặc thu phóng để tạo ra những hiệu ứng thị giác. Camera có thể điều chỉnh để tạo ra các trải nghiệm khác nhau, như tập trung vào các đối tượng nhất định hoặc cho phép người chơi xem toàn bộ scene.
 
-\subsection{Các lớp và cấu trúc chính của chương trình:}
+% %     \item \textbf{Physics}: Đây là hệ thống quản lý va chạm và các quy luật vật lý trong trò chơi. Phaser cung cấp nhiều loại vật lý, như Arcade Physics, giúp tạo ra các tương tác đơn giản và hiệu quả giữa các đối tượng. Physics đảm bảo các đối tượng di chuyển, va chạm, và phản ứng theo các quy tắc mà trò chơi yêu cầu.
 
-\begin{itemize}
-    \item \textbf{Lớp Snake:}
-\end{itemize}
+% %     \item \textbf{Input}: Input quản lý các sự kiện đầu vào từ người chơi, như bàn phím, chuột hoặc cảm ứng. Input giúp trò chơi xử lý hành động của người chơi và phản hồi lại, như di chuyển nhân vật, kích hoạt chức năng, hoặc điều khiển menu.
+% % \end{itemize}
 
-Đây là lớp chính quản lý các tính năng của con rắn, từ điều khiển, di chuyển, đến phát hiện va chạm.
+% % \subsection{Sơ lược về các chức năng chính:}
+% % \begin{itemize}
+% %     \item \textbf{Di chuyển và kiểm soát rắn}: Người chơi có thể điều khiển rắn theo các hướng lên, xuống, trái và phải. Hướng di chuyển của rắn được xác định dựa trên đầu vào của bàn phím.
 
-Lớp này chứa thông tin về các đoạn của rắn, hướng di chuyển hiện tại và các trạng thái khác của trò chơi.
+% %     \item \textbf{Hệ thống va chạm:} Trò chơi có chức năng phát hiện va chạm giữa đầu rắn và thân rắn, giúp trò chơi kết thúc nếu rắn đâm vào chính mình.
 
-\begin{itemize}
-    \item \textbf{Interface SnakePart:}
-\end{itemize}
+% %     \item \textbf{Hệ thống tạo thức ăn:} Thức ăn sẽ xuất hiện ở vị trí ngẫu nhiên trong khu vực chơi. Khi rắn ăn được thức ăn, chiều dài của nó sẽ tăng lên, và thức ăn mới sẽ được sinh ra ở vị trí khác.
 
-Đại diện cho từng đoạn của rắn với vị trí và animations.
+% %     \item \textbf{Hiệu ứng animations cho rắn:} Các đoạn của rắn bao gồm đầu, thân, và đuôi, đều có các hiệu ứng animations riêng, tạo cảm giác mượt mà khi rắn di chuyển.
+% % \end{itemize}
 
-Mỗi phần của rắn bao gồm một sprite và vị trí hiện tại của nó.
+% % \subsection{Các lớp và cấu trúc chính của chương trình:}
+% % \begin{itemize}
+% %     \item \textbf{Lớp Snake:}
+% % \end{itemize}
 
-\begin{itemize}
-    \item \textbf{Type Direction và BodyAnimKeys:}
-\end{itemize}
+% % Đây là lớp chính quản lý các tính năng của con rắn, từ điều khiển, di chuyển, đến phát hiện va chạm.
 
-\textbf{Direction:} Quy định hướng di chuyển của rắn.
+% % Lớp này chứa thông tin về các đoạn của rắn, hướng di chuyển hiện tại và các trạng thái khác của trò chơi.
 
-\textbf{BodyAnimKeys:} Quy định animations dành cho phần thân của rắn.
+% % \begin{itemize}
+% %     \item \textbf{Interface SnakePart:}
+% % \end{itemize}
 
-\begin{itemize}
-    \item \textbf{Phương thức move():}
-\end{itemize}
+% % Đại diện cho từng đoạn của rắn với vị trí và animations.
 
-Phương thức này giúp rắn di chuyển theo hướng hiện tại.
+% % Mỗi phần của rắn bao gồm một sprite và vị trí hiện tại của nó.
 
-Mỗi khi \textbf{move()} được gọi, phương thức tính toán vị trí mới của đầu rắn và di chuyển các đoạn thân theo sau để tạo ra hiệu ứng rắn di chuyển mượt mà.
+% % \begin{itemize}
+% %     \item \textbf{Type Direction và BodyAnimKeys:}
+% % \end{itemize}
 
-\begin{itemize}
-    \item \textbf{Phương thức grow():}
-\end{itemize}
+% % \textbf{Direction:} Quy định hướng di chuyển của rắn.
 
-Được gọi khi rắn ăn được thức ăn. Phương thức này thêm một đoạn mới vào cuối rắn, làm tăng chiều dài của rắn.
+% % \textbf{BodyAnimKeys:} Quy định animations dành cho phần thân của rắn.
 
-\begin{itemize}
-    \item \textbf{Hệ thống animations (createAnimations):}
-\end{itemize}
+% % \begin{itemize}
+% %     \item \textbf{Phương thức move():}
+% % \end{itemize}
 
-Lớp này sử dụng các hình ảnh để tạo animations cho từng đoạn của rắn và có các animations khác nhau cho đầu rắn khi rắn di chuyển theo các hướng.
+% % Phương thức này giúp rắn di chuyển theo hướng hiện tại.
 
-\begin{itemize}
-    \item \textbf{Phương thức initializeSnake():}
-\end{itemize}
+% % Mỗi khi \textbf{move()} được gọi, phương thức tính toán vị trí mới của đầu rắn và di chuyển các đoạn thân theo sau để tạo ra hiệu ứng rắn di chuyển mượt mà.
 
-Phương thức khởi tạo các đoạn của rắn và đặt rắn ở vị trí ban đầu trên màn hình.
+% % \begin{itemize}
+% %     \item \textbf{Phương thức grow():}
+% % \end{itemize}
 
-\subsection{Giải thuật và cấu trúc dữ liệu:}
+% % Được gọi khi rắn ăn được thức ăn. Phương thức này thêm một đoạn mới vào cuối rắn, làm tăng chiều dài của rắn.
 
-Dữ liệu của rắn được lưu trữ dưới dạng mảng snakeParts, trong đó mỗi phần tử là một SnakePart, biểu diễn một đoạn của rắn. 
+% % \begin{itemize}
+% %     \item \textbf{Hệ thống animations (createAnimations):}
+% % \end{itemize}
 
-\textbf{Giải thuật điều khiển di chuyển:} Dựa trên hướng đi của người chơi, chương trình tính toán vị trí mới cho rắn và di chuyển các đoạn thân theo hướng đầu rắn để tạo hiệu ứng di chuyển.
+% % Lớp này sử dụng các hình ảnh để tạo animations cho từng đoạn của rắn và có các animations khác nhau cho đầu rắn khi rắn di chuyển theo các hướng.
 
-\textbf{Giải thuật sinh thức ăn ngẫu nhiên:} Tọa độ của thức ăn được sinh ra ngẫu nhiên trên màn hình với các giá trị chia hết cho kích thước ô lưới (grid size), giúp nó nằm gọn trong các ô của màn hình.
+% % \begin{itemize}
+% %     \item \textbf{Phương thức initializeSnake():}
+% % \end{itemize}
+
+% % Phương thức khởi tạo các đoạn của rắn và đặt rắn ở vị trí ban đầu trên màn hình.
+
+% % \subsection{Giải thuật và cấu trúc dữ liệu:}
+% % Dữ liệu của rắn được lưu trữ dưới dạng mảng snakeParts, trong đó mỗi phần tử là một SnakePart, biểu diễn một đoạn của rắn.\\
+
+% % \textbf{Giải thuật điều khiển di chuyển:} Dựa trên hướng đi của người chơi, chương trình tính toán vị trí mới cho rắn và di chuyển các đoạn thân theo hướng đầu rắn để tạo hiệu ứng di chuyển.\\
+
+% % \textbf{Giải thuật sinh thức ăn ngẫu nhiên:} Tọa độ của thức ăn được sinh ra ngẫu nhiên trên màn hình với các giá trị chia hết cho kích thước ô lưới (grid size), giúp nó nằm gọn trong các ô của màn hình.
 \end{document}
