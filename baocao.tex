@@ -777,7 +777,6 @@ update() {
         y: this.body[0].y + this.direction.y
     };
 
-    // Kiểm tra va chạm với tường (wrap-around)
     if (head.x < 0) head.x = this.gridSize - 1;
     if (head.x >= this.gridSize) head.x = 0;
     if (head.y < 0) head.y = this.gridSize - 1;
@@ -797,10 +796,8 @@ update() {
 draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Vẽ lưới
     this.drawGrid();
 
-    // Vẽ rắn
     this.snake.body.forEach((segment, index) => {
         this.ctx.fillStyle = index === 0 ? '#4CAF50' : '#81C784';
         this.ctx.fillRect(
@@ -811,7 +808,6 @@ draw() {
         );
     });
 
-    // Vẽ thức ăn
     this.ctx.fillStyle = '#FF5722';
     this.ctx.beginPath();
     this.ctx.arc(
@@ -850,13 +846,79 @@ checkCollision() {
 
 
 
-
-% Task 5, 6, 7 - chua lam
+\newpage
+% Task 5, 6, 7
 \section{Quá trình làm việc nhóm}
 % Task 5 - Mô tả quá trình làm việc nhóm : Dựa trên diễn biến công việc đã được nhóm thực hiện thực tế trong Trello hoặc Git.. nhóm SV trình bày quá trình làm việc của cả nhóm, các vấn đề đã xảy ra và nhóm đã giải quyết như thế nào. Phần này tối thiểu 2 trang, tối đa 5 trang.
 
 % Task 6 - Các kỹ năng mà nhóm SV áp dụng khi tham gia đồ án này. Phần này tối thiểu 1 trang, tối đa 3 trang.
-\subsection{Kỹ năng đạt được}
+
+\subsection{Diễn biến công việc nhóm}
+Nhóm đã sử dụng Trello để phân công nhiệm vụ, theo dõi tiến độ và đánh giá mức độ hoàn thành công việc của từng thành viên. Quy trình làm việc diễn ra theo các giai đoạn sau:
+
+\begin{enumerate}
+    \item \textbf{Khởi đầu dự án:}
+    \begin{itemize}
+        \item Họp nhóm lần đầu để thảo luận và chọn đề tài.
+        \item Phân công vai trò cho từng thành viên dựa trên sở trường và mong muốn.
+        \item Tạo bảng Trello, phân chia các nhiệm vụ thành các mục tiêu nhỏ, bao gồm thiết kế, lập trình, kiểm thử, và viết báo cáo.
+    \end{itemize}
+    
+    \item \textbf{Thực hiện dự án:}
+    \begin{itemize}
+        \item Họp nhóm định kỳ mỗi tuần để cập nhật tiến độ và giải quyết các vướng mắc.
+        \item Sử dụng Git để quản lý mã nguồn, với các quy tắc về đặt tên nhánh, commit, và resolve conflict.
+        \item Mỗi thành viên đảm nhận nhiệm vụ riêng, bao gồm phát triển logic trò chơi, xử lý giao diện, và kiểm tra tích hợp.
+    \end{itemize}
+    
+    \item \textbf{Giải quyết các vấn đề phát sinh:}
+    \begin{itemize}
+        \item Hiệu năng trò chơi chưa ổn định: Điều chỉnh thuật toán di chuyển và vẽ màn hình để tối ưu tốc độ.
+        \item Khác biệt trong lịch trình làm việc: Linh hoạt thay đổi thời gian họp nhóm để phù hợp với tất cả thành viên.
+        \item Xung đột mã nguồn khi merge branch: Sử dụng rebase để git tree được đẹp và dễ theo dõi, và thảo luận trực tiếp để chọn giải pháp tốt nhất.
+    \end{itemize}
+\end{enumerate}
+\newpage
+\subsection{Giải quyết git conflicts}
+Sử dụng Visual Code để có thể theo dõi conflicts trực quan, sau đó dùng câu git rebase để rebase nhánh đang có conflict lên main branch.\\
+\includegraphics[width=0.8\textwidth]{gitconflict1.png} \\
+\includegraphics[width=0.8\textwidth]{gitconflict2.png} \\
+\includegraphics[width=0.8\textwidth]{gitrebase3.png} \\
+
+\subsection{Kết quả công việc}
+\begin{itemize}
+    \item Hoàn thành trò chơi đúng tiến độ với đầy đủ các chức năng cơ bản và nâng cao như tăng tốc độ rắn và hiển thị điểm số.
+    \item Báo cáo dự án chi tiết, trình bày rõ ràng các phần từ kỹ thuật đến đánh giá cá nhân.
+    \item Rèn luyện được kỹ năng làm việc nhóm và giải quyết vấn đề.
+\end{itemize}
+
+\newpage
+\subsection{Các kỹ năng áp dụng khi tham gia đồ án này}
+\begin{enumerate}
+    \item \textbf{Kỹ năng giao tiếp và làm việc nhóm:}
+    \begin{itemize}
+        \item Sử dụng Slack và Trello để trao đổi thông tin, phân công công việc và theo dõi tiến độ.
+        \item Tổ chức họp nhóm định kỳ và giải quyết các vấn đề nội bộ nhanh chóng, hiệu quả.
+    \end{itemize}
+    
+    \item \textbf{Kỹ năng lập trình và sử dụng công cụ:}
+    \begin{itemize}
+        \item Sử dụng Git và GitHub để quản lý mã nguồn và thực hiện kiểm tra phiên bản.
+        \item Ứng dụng kiến thức lập trình JavaScript và HTML/CSS trong phát triển game Snake.
+    \end{itemize}
+    
+    \item \textbf{Kỹ năng giải quyết vấn đề:}
+    \begin{itemize}
+        \item Khắc phục các lỗi phát sinh trong quá trình phát triển trò chơi.
+        \item Tối ưu hóa mã nguồn để đảm bảo hiệu năng tốt nhất.
+    \end{itemize}
+    
+    \item \textbf{Kỹ năng trình bày và báo cáo:}
+    \begin{itemize}
+        \item Trình bày ý tưởng và kết quả làm việc rõ ràng, khoa học trong báo cáo.
+        \item Chuẩn bị tài liệu chi tiết và trực quan để thuyết trình dự án.
+    \end{itemize}
+\end{enumerate}
 
 % Task 7 - Đánh giá việc thực hiện hợp đồng nhóm
 \subsection{Đánh giá hợp đồng nhóm}
